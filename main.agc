@@ -24,6 +24,7 @@ LoadImage(1,"IDLE1.PNG")
 Player=CreateSprite(1)				//Creates Player Sprite
 SetFolder("/media")
 
+loadPlayerIDLE()
 
 do
 	if paused = "false"
