@@ -90,6 +90,7 @@ function loadPlayerIDLE()	//Loads images for IDLE Animation
 	AddSpriteAnimationFrame(Player,LoadImage("RIGHT3.PNG"))	//18
 	AddSpriteAnimationFrame(Player,LoadImage("RIGHT4.PNG"))	//19
 	SetFolder("/media")
+	SetSpriteScale(Player,1,1)
 	NickGhostMovementTextures = "false"
 	NickMovementTextures = "true"
 endfunction

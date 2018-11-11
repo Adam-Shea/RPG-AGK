@@ -59,6 +59,7 @@ function loadGhostTexture()
 	ghostRIGHTAnimation = LoadImage("RIGHT.PNG")
 	ghostUPAnimation = LoadImage("UP.PNG")
 	SetFolder("/media")
+	SetSpriteScale(Player,2,1)
 	NickGhostMovementTextures = "true"
 	NickMovementTextures = "false"
 endfunction
