@@ -1,5 +1,6 @@
 global playerSpeed = 4		//Player movement speed
 global animationSpeed = 5	//Player animation fps
+global animationIDLESpeed as float = 10	//Player animation fps
 global startFrame = 1		//Starting frame for animations
 global endFrame = 3			//Ending frame for animations
 global NickMovementTextures as string = "false"	//Tells system if textures are loaded in
@@ -27,8 +28,11 @@ function baseWASDMove()	//Controls WASD movement
 	endif
 	
 	if GetRawKeyState(87) = 0 and GetRawKeyState(83) = 0 and GetRawKeyState(65) = 0 and GetRawKeyState(68) = 0	//Works out if player is IDLE
+		IDLE as string = "true"
 		startFrame = 1
-		endFrame = 3
+		endFrame = 1
+	else
+		IDLE = "false"
 	endif
 	
 	
@@ -51,10 +55,28 @@ function baseWASDMove()	//Controls WASD movement
 	endif
 	
 	//Controls animation player
-	if GetSpriteCurrentFrame(Player) > endFrame or GetSpriteCurrentFrame(Player) < startFrame	//If currect frame is bigger than end frame or if current frame is more than the max frame
+	if GetSpriteCurrentFrame(Player) > endFrame and IDLE = "false" or GetSpriteCurrentFrame(Player) < startFrame and IDLE = "false"	//If currect frame is bigger than end frame or if current frame is more than the max frame
 		StopSprite(Player)	//Stop animation
 		PlaySprite(Player,animationSpeed,1,startFrame,endFrame)	//Play sprite from the start and end of set animations
 	endif
+
+
+
+	if GetSpriteCurrentFrame(Player) > endFrame and IDLE = "true" or GetSpriteCurrentFrame(Player) < startFrame and IDLE = "true"	//Controls IDLE animation speed
+		StopSprite(Player)	//Stop animation
+		chanceOfIDLE = random(1,2)
+		if chanceOfIDLE = 2
+			startFrame = 1
+			endFrame = 3
+		endif
+		PlaySprite(Player,animationIDLESpeed,1,startFrame,endFrame)
+		startFrame = 1
+		endFrame = 1
+		chanceOfIDLE = random(1,2)
+	endif
+	
+	
+	
 endfunction
 
 function loadPlayerIDLE()	//Loads images for IDLE Animation
