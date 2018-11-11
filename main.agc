@@ -35,10 +35,10 @@ do
 	endif
 	
 	if paused = "false" and ghostMode = "true"
-		ghostController() //Starts base ghost movement
 		if NickGhostMovementTextures = "false"
 			loadGhostTexture()
 		endif
+		ghostController() //Starts base ghost movement
 	endif
 
 
@@ -46,6 +46,7 @@ do
 
 
 	if GetRawKeyPressed(72) and ghostMode = "true"
+		DeleteParticles(GhostParticle)
 		ghostMode = "false"
 	endif
 

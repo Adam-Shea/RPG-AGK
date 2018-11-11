@@ -41,8 +41,9 @@ function ghostController()
 		ghostFloatDistance = ghostFloatDistance * -1
 		ghostFloatSpeed = ghostFloatSpeed * -1
 	endif
-
-
+	
+	SetParticlesPosition(GhostParticle,GetSpriteX(Player)+20,GetSpriteY(Player)+42)
+	
 	
 endfunction
 
@@ -50,6 +51,8 @@ global ghostDOWNAnimation = 0	//Hold DOWN Animation
 global ghostLEFTAnimation = 0	//Hold LEFT Animation
 global ghostRIGHTAnimation = 0	//Hold RIGHT Animation
 global ghostUPAnimation = 0		//Hold UP Animation
+global ghostParticleImage = 0
+global GhostParticle = 0
 
 function loadGhostTexture()
 	ghostFloatCurrentDistance = 0	//Current float distance
@@ -58,8 +61,9 @@ function loadGhostTexture()
 	ghostLEFTAnimation = LoadImage("LEFT.PNG")
 	ghostRIGHTAnimation = LoadImage("RIGHT.PNG")
 	ghostUPAnimation = LoadImage("UP.PNG")
+	ghostParticleImage = LoadImage("ghostdust.PNG")
 	SetFolder("/media")
-	SetSpriteScale(Player,1.5,1)
+	SetSpriteScale(Player,2,1)
 	NickGhostMovementTextures = "true"
 	NickMovementTextures = "false"
 	
@@ -71,4 +75,20 @@ function loadGhostTexture()
 	SetImageMagFilter(ghostRIGHTAnimation, 0)
 	SetImageMinFilter(ghostUPAnimation, 0)
 	SetImageMagFilter(ghostUPAnimation, 0)
+
+	DeleteParticles(GhostParticle)
+	GhostParticle = CreateParticles(GetSpriteX(Player)+10,GetSpriteY(Player)+10)
+	SetParticlesImage(GhostParticle,ghostParticleImage)
+	SetParticlesDirection(GhostParticle,0,10)
+	SetParticlesSize(GhostParticle,1)
+	SetParticlesLife(GhostParticle,0.5)
+	SetParticlesFrequency(GhostParticle,50)
+	SetParticlesTransparency(GhostParticle,2)
+	
+
+	
+
+	
+	
+	
 endfunction
