@@ -62,4 +62,13 @@ function loadGhostTexture()
 	SetSpriteScale(Player,1.5,1)
 	NickGhostMovementTextures = "true"
 	NickMovementTextures = "false"
+	
+	SetImageMinFilter(ghostDOWNAnimation, 0)
+	SetImageMagFilter(ghostDOWNAnimation, 0)
+	SetImageMinFilter(ghostLEFTAnimation, 0)
+	SetImageMagFilter(ghostLEFTAnimation, 0)
+	SetImageMinFilter(ghostRIGHTAnimation, 0)
+	SetImageMagFilter(ghostRIGHTAnimation, 0)
+	SetImageMinFilter(ghostUPAnimation, 0)
+	SetImageMagFilter(ghostUPAnimation, 0)
 endfunction

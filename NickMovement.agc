@@ -76,43 +76,109 @@ function baseWASDMove()	//Controls WASD movement
 	endif
 	
 	
-	
+
 endfunction
 
 function loadPlayerIDLE()	//Loads images for IDLE Animation
 	ClearSpriteAnimationFrames(Player)
 	SetFolder("/media/NickAnimations/IDLE")
-	SetSpriteImage(Player,LoadImage("IDLE1.PNG"))
 
-	AddSpriteAnimationFrame(Player,LoadImage("IDLE1.PNG"))	//1
-	AddSpriteAnimationFrame(Player,LoadImage("IDLE2.PNG"))	//2
-	AddSpriteAnimationFrame(Player,LoadImage("IDLE3.PNG"))	//3
-	
-	SetFolder("/media/NickAnimations/DOWN")
-	AddSpriteAnimationFrame(Player,LoadImage("DOWN1.PNG"))	//4
-	AddSpriteAnimationFrame(Player,LoadImage("DOWN2.PNG"))	//5
-	AddSpriteAnimationFrame(Player,LoadImage("DOWN3.PNG"))	//6
-	AddSpriteAnimationFrame(Player,LoadImage("DOWN4.PNG"))	//7
-	
+
+
+	SetFolder("/media/NickAnimations/DOWN")	//Loads in frames
+	DOWN1 = LoadImage("DOWN1.PNG")
+	DOWN2 = LoadImage("DOWN2.PNG")
+	DOWN3 = LoadImage("DOWN3.PNG")
+
+	SetFolder("/media/NickAnimations/IDLE")
+	IDLE1 = LoadImage("IDLE1.PNG")
+	IDLE2 = LoadImage("IDLE2.PNG")
+	IDLE3 = LoadImage("IDLE3.PNG")
+
 	SetFolder("/media/NickAnimations/UP")
-	AddSpriteAnimationFrame(Player,LoadImage("UP1.PNG"))	//8
-	AddSpriteAnimationFrame(Player,LoadImage("UP2.PNG"))	//9
-	AddSpriteAnimationFrame(Player,LoadImage("UP3.PNG"))	//10
-	AddSpriteAnimationFrame(Player,LoadImage("UP4.PNG"))	//11
+	UP1 = LoadImage("UP1.PNG")
+	UP2 = LoadImage("UP2.PNG")
+	UP3 = LoadImage("UP3.PNG")
 
 	SetFolder("/media/NickAnimations/LEFT")
-	AddSpriteAnimationFrame(Player,LoadImage("LEFT1.PNG"))	//12
-	AddSpriteAnimationFrame(Player,LoadImage("LEFT2.PNG"))	//13
-	AddSpriteAnimationFrame(Player,LoadImage("LEFT3.PNG"))	//14
-	AddSpriteAnimationFrame(Player,LoadImage("LEFT4.PNG"))	//15
+	LEFT1 = LoadImage("LEFT1.PNG")
+	LEFT2 = LoadImage("LEFT2.PNG")
+	LEFT3 = LoadImage("LEFT3.PNG")
 
 	SetFolder("/media/NickAnimations/RIGHT")
-	AddSpriteAnimationFrame(Player,LoadImage("RIGHT1.PNG"))	//16
-	AddSpriteAnimationFrame(Player,LoadImage("RIGHT2.PNG"))	//17
-	AddSpriteAnimationFrame(Player,LoadImage("RIGHT3.PNG"))	//18
-	AddSpriteAnimationFrame(Player,LoadImage("RIGHT4.PNG"))	//19
+	RIGHT1 = LoadImage("RIGHT1.PNG")
+	RIGHT2 = LoadImage("RIGHT2.PNG")
+	RIGHT3 = LoadImage("RIGHT3.PNG")
+
+	SetImageMinFilter(DOWN1, 0)	//Turns antialiasing off for all textures
+	SetImageMagFilter(DOWN1, 0)
+	SetImageMinFilter(DOWN2, 0)
+	SetImageMagFilter(DOWN2, 0)
+	SetImageMinFilter(DOWN3, 0)
+	SetImageMagFilter(DOWN3, 0)
+
+	SetImageMinFilter(IDLE1, 0)
+	SetImageMagFilter(IDLE1, 0)
+	SetImageMinFilter(IDLE2, 0)
+	SetImageMagFilter(IDLE2, 0)
+	SetImageMinFilter(IDLE3, 0)
+	SetImageMagFilter(IDLE3, 0)
+
+	SetImageMinFilter(UP1, 0)
+	SetImageMagFilter(UP1, 0)
+	SetImageMinFilter(UP2, 0)
+	SetImageMagFilter(UP2, 0)
+	SetImageMinFilter(UP3, 0)
+	SetImageMagFilter(UP3, 0)
+
+	SetImageMinFilter(LEFT1, 0)
+	SetImageMagFilter(LEFT1, 0)
+	SetImageMinFilter(LEFT2, 0)
+	SetImageMagFilter(LEFT2, 0)
+	SetImageMinFilter(LEFT3, 0)
+	SetImageMagFilter(LEFT3, 0)
+
+	SetImageMinFilter(RIGHT1, 0)
+	SetImageMagFilter(RIGHT1, 0)
+	SetImageMinFilter(RIGHT2, 0)
+	SetImageMagFilter(RIGHT2, 0)
+	SetImageMinFilter(RIGHT3, 0)
+	SetImageMagFilter(RIGHT3, 0)
+
+	SetSpriteImage(Player,IDLE1)	//Spawn animation
+
+
+	
+	
+	AddSpriteAnimationFrame(Player,IDLE1)	//1
+	AddSpriteAnimationFrame(Player,IDLE2)	//2
+	AddSpriteAnimationFrame(Player,IDLE3)	//3
+	
+	AddSpriteAnimationFrame(Player,DOWN1)	//4
+	AddSpriteAnimationFrame(Player,DOWN2)	//5
+	AddSpriteAnimationFrame(Player,DOWN3)	//6
+	AddSpriteAnimationFrame(Player,DOWN1)	//7
+	
+	AddSpriteAnimationFrame(Player,UP1)	//8
+	AddSpriteAnimationFrame(Player,UP2)	//9
+	AddSpriteAnimationFrame(Player,UP3)	//10
+	AddSpriteAnimationFrame(Player,UP1)	//11
+
+	AddSpriteAnimationFrame(Player,LEFT1)	//12
+	AddSpriteAnimationFrame(Player,LEFT2)	//13
+	AddSpriteAnimationFrame(Player,LEFT3)	//14
+	AddSpriteAnimationFrame(Player,LEFT2)	//15
+
+	AddSpriteAnimationFrame(Player,RIGHT1)	//16
+	AddSpriteAnimationFrame(Player,RIGHT2)	//17
+	AddSpriteAnimationFrame(Player,RIGHT3)	//18
+	AddSpriteAnimationFrame(Player,RIGHT2)	//19
+	
+	
+	
 	SetFolder("/media")
 	SetSpriteScale(Player,1,1)
 	NickGhostMovementTextures = "false"
 	NickMovementTextures = "true"
+
 endfunction
