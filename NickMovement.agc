@@ -2,6 +2,7 @@ global playerSpeed = 4		//Player movement speed
 global animationSpeed = 5	//Player animation fps
 global startFrame = 1		//Starting frame for animations
 global endFrame = 3			//Ending frame for animations
+global NickMovementTextures as string = "false"	//Tells system if textures are loaded in
 
 function baseWASDMove()	//Controls WASD movement
 	if GetRawKeyState(87) = 1		//W
@@ -54,12 +55,13 @@ function baseWASDMove()	//Controls WASD movement
 		StopSprite(Player)	//Stop animation
 		PlaySprite(Player,animationSpeed,1,startFrame,endFrame)	//Play sprite from the start and end of set animations
 	endif
-
-	
 endfunction
 
 function loadPlayerIDLE()	//Loads images for IDLE Animation
+	ClearSpriteAnimationFrames(Player)
 	SetFolder("/media/NickAnimations/IDLE")
+	SetSpriteImage(Player,LoadImage("IDLE1.PNG"))
+
 	AddSpriteAnimationFrame(Player,LoadImage("IDLE1.PNG"))	//1
 	AddSpriteAnimationFrame(Player,LoadImage("IDLE2.PNG"))	//2
 	AddSpriteAnimationFrame(Player,LoadImage("IDLE3.PNG"))	//3
@@ -88,5 +90,6 @@ function loadPlayerIDLE()	//Loads images for IDLE Animation
 	AddSpriteAnimationFrame(Player,LoadImage("RIGHT3.PNG"))	//18
 	AddSpriteAnimationFrame(Player,LoadImage("RIGHT4.PNG"))	//19
 	SetFolder("/media")
-
+	NickGhostMovementTextures = "false"
+	NickMovementTextures = "true"
 endfunction
