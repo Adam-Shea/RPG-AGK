@@ -1,2 +1,3 @@
 NickMovement.agc linguist-language = AppGameKit
 main.agc linguist-language = AppGameKit
+NickGhostMovement.agc linguist-langauge = AppGamekit
